@@ -8,13 +8,8 @@ If you want to edit the movie, image or trailer selection, you can edit the Movi
 
 At the end of entretainment_center.py, fresh_tomatoes.open_movies_page(movies). This calls on fresh_tomatoes.py to edit the html file and display the website using webbrowser.
 
-
-entretainment_center.py calls on fresh_tomatoes.py to modify the html file.
-
-## Starter code
-* ud036_StarterCode: Source code for a Movie Trailer website.
-
 ## Acknowledgments and Resources used
+* Starter Code: ud036_StarterCode
 * Images and YouTube links: To view the links for the images and videos used, please look at entretainment_center.py.
 * fresh_tomatoes.html: Code provided by Udacity to create website
 * fresh_tomatoes.py: From ud036_StarterCode. Modified to change background and other style options.
