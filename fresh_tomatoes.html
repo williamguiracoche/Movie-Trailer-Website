@@ -1,10 +1,4 @@
-import webbrowser
-import os
-import re
 
-
-# Styles and scripting for the page
-main_page_head = '''
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -87,11 +81,7 @@ main_page_head = '''
         });
     </script>
 </head>
-'''
 
-
-# The main page layout and title bar
-main_page_content = '''
   <body>
     <!-- Trailer Video Modal -->
     <div class="modal" id="trailer">
@@ -117,55 +107,67 @@ main_page_content = '''
       </div>
     </div>
     <div class="container">
-      {movie_tiles}
+      
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="qAfbp3YX9F0" data-toggle="modal" data-target="#trailer">
+    <img src="https://imgc.allpostersimages.com/img/posters/top-gun-movie-tom-cruise-and-kelly-mcgillis-80s-poster-print_u-L-F575DB0.jpg?src=gp&w=300&h=375" width="220" height="342">
+    <h2>Top Gun</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="KtEIMC58sZo" data-toggle="modal" data-target="#trailer">
+    <img src="https://m.media-amazon.com/images/M/MV5BNjEzYjJmNzgtNDkwNy00MTQ4LTlmMWMtNzA4YjE2NjI0ZDg4XkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_UX182_CR0,0,182,268_AL_.jpg" width="220" height="342">
+    <h2>Apollo 13</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="ej3ioOneTy8" data-toggle="modal" data-target="#trailer">
+    <img src="https://upload.wikimedia.org/wikipedia/en/c/cd/The_Martian_film_poster.jpg" width="220" height="342">
+    <h2>The Martian</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="FebPJlmgldE" data-toggle="modal" data-target="#trailer">
+    <img src="https://m.media-amazon.com/images/M/MV5BZTYzMjA2M2EtYmY1OC00ZWMxLThlY2YtZGI3MTQzOWM4YjE3XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_UX182_CR0,0,182,268_AL_.jpg" width="220" height="342">
+    <h2>The Aviator</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="yH7sjSZ85-k" data-toggle="modal" data-target="#trailer">
+    <img src="http://t2.gstatic.com/images?q=tbn:ANd9GcQOyXxr0BaYaRUy0krslHpZ2A-OBDev2HhNzbdgTp4oEEuPxzeR" width="220" height="342">
+    <h2>Flight</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="SyJszxnJydA" data-toggle="modal" data-target="#trailer">
+    <img src="http://www.gstatic.com/tv/thumb/dvdboxart/176379/p176379_d_v8_aa.jpg" width="220" height="342">
+    <h2>Star Trek</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="RfJgT89hEME" data-toggle="modal" data-target="#trailer">
+    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/b/bb/Independence_day_movieposter.jpg/220px-Independence_day_movieposter.jpg" width="220" height="342">
+    <h2>Independence Day</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="qhKnuKFEKcA" data-toggle="modal" data-target="#trailer">
+    <img src="https://lh3.ggpht.com/9bwpk6vt2_OY35Kg2pKNVO8myD80KLpe0_20CYg5Q54SzF9Keaw2h9nRC8zr82mH1SU=w200-h300" width="220" height="342">
+    <h2>Flyboys</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="1NMxxfM9mYM" data-toggle="modal" data-target="#trailer">
+    <img src="https://upload.wikimedia.org/wikipedia/en/b/bc/Interstellar_film_poster.jpg" width="220" height="342">
+    <h2>Interstellar</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="d96cjJhvlMA" data-toggle="modal" data-target="#trailer">
+    <img src="https://upload.wikimedia.org/wikipedia/en/b/b5/Guardians_of_the_Galaxy_poster.jpg" width="220" height="342">
+    <h2>Guardians of the Galaxy</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="1g3_CFmnU7k" data-toggle="modal" data-target="#trailer">
+    <img src="https://is2-ssl.mzstatic.com/image/thumb/Video6/v4/61/16/ce/6116cec2-d2e8-de26-f80d-38a1685d04b8/source/1200x630bb.jpg" width="220" height="342">
+    <h2>Star Wars</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="5PSNL1qE6VY" data-toggle="modal" data-target="#trailer">
+    <img src="https://www.movieposter.com/posters/archive/main/98/MPW-49246" width="220" height="342">
+    <h2>Avatar</h2>
+</div>
+
     </div>
   </body>
 </html>
-'''
-
-
-# A single movie entry html template
-movie_tile_content = '''
-<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="{trailer_youtube_id}" data-toggle="modal" data-target="#trailer">
-    <img src="{poster_image_url}" width="220" height="342">
-    <h2>{movie_title}</h2>
-</div>
-'''
-
-
-def create_movie_tiles_content(movies):
-    # The HTML content for this section of the page
-    content = ''
-    for movie in movies:
-        # Extract the youtube ID from the url
-        youtube_id_match = re.search(
-            r'(?<=v=)[^&#]+', movie.trailer_youtube_url)
-        youtube_id_match = youtube_id_match or re.search(
-            r'(?<=be/)[^&#]+', movie.trailer_youtube_url)
-        trailer_youtube_id = (youtube_id_match.group(0) if youtube_id_match
-                              else None)
-
-        # Append the tile for the movie with its content filled in
-        content += movie_tile_content.format(
-            movie_title=movie.title,
-            poster_image_url=movie.poster_image_url,
-            trailer_youtube_id=trailer_youtube_id
-        )
-    return content
-
-
-def open_movies_page(movies):
-    # Create or overwrite the output file
-    output_file = open('fresh_tomatoes.html', 'w')
-
-    # Replace the movie tiles placeholder generated content
-    rendered_content = main_page_content.format(
-        movie_tiles=create_movie_tiles_content(movies))
-
-    # Output the file
-    output_file.write(main_page_head + rendered_content)
-    output_file.close()
-
-    # open the output file in the browser (in a new tab, if possible)
-    url = os.path.abspath(output_file.name)
-    webbrowser.open('file://' + url, new=2)
