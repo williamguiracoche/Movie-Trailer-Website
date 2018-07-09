@@ -1,3 +1,16 @@
+""" Entretainment Center
+
+Run entretainment_center.py to create your movie website.
+
+This file is where you input all the information about the movies you want to
+display. Each Movie instance, further defined in media.py, contains the
+movie title, poster image url and youtube trailer urlself.
+
+After defining the Movies, they are all placed into a 'movies' array and
+fresh_tomatoes.open_movies_page(movies) is called to create an html file to
+display on the website.
+"""
+
 import media
 import fresh_tomatoes
 
@@ -67,5 +80,5 @@ movies = [
     top_gun, apollo_13, the_martian, the_aviator, flight, star_trek,
     independence_day, flyboys, interstellar, guardians, star_wars, avatar]
 
-# all open_movies_page function from fresh_tomatoes to create the website
+# Call open_movies_page function from fresh_tomatoes to create the website
 fresh_tomatoes.open_movies_page(movies)
