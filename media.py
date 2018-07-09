@@ -12,8 +12,12 @@ class Movie():
     """ Movie Class.
 
     This class allows you to define a movie and store its title,
-    poster image link and youtube trailer link. An instance contains a movie
-    title (string), the poster image url (string) and a youtube url (string).
+    poster image link and youtube trailer link.
+
+    Attributes:
+    attr1 (str): Movie title
+    attr2 (str): Movie poster image url
+    attr3 (str): Movie youtube trailer url
 
     """
 
